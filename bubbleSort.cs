@@ -1,20 +1,17 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Sorting_Algorithms
 {
-    class bubbleSort
-    {
-        private int[] array;
-        private int arraySize;
-
-        public bubbleSort(int arraySize, int[] array)
+    class bubbleSort:Sorting
+    { 
+        public bubbleSort(int arraySize, int[] array):base()
         {
             this.arraySize = arraySize;
             this.array = array;
         }
 
-        public void changeArray()
+        public override void changeArray()
         {
             int temp;
             int ciclesCount = array.Length;
@@ -35,16 +32,5 @@ namespace Sorting_Algorithms
 
             printArray();
         }
-
-        public void printArray()
-        {
-            Console.WriteLine("bubbleSort array:\n");
-
-            for (int i = array.Length - arraySize; i < array.Length; i++)
-            {
-                Console.WriteLine(array[i] + "\t");
-            }
-        }
-
     }
 }
