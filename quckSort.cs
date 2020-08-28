@@ -1,35 +1,35 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Sorting_Algorithms
 {
-    class quckSort
+    class quckSort:Sorting
     {
-        private int[] array;
-        private int arraySize;
         private int beg, end, pivotLoc;
 
-        public quckSort(int arraySize,int[] array)
+        public quckSort(int arraySize,int[] array):base()
         {
             this.arraySize = arraySize;
             this.array = array;
             beg = 0;
             end = array.Length-1;
-            quickSort(beg, end);
+            changeArray();
+        }
+
+        public override void changeArray()
+        {
+            quickSort(beg,end);
+            printArray();
         }
 
         public void quickSort(int beg,int end)
         {
-
-            if(beg<end)
+            if (beg < end)
             {
-                partitionArray(ref beg,ref end,ref pivotLoc);
-                quickSort(beg,pivotLoc-1);
-                quickSort(pivotLoc + 1,end);
-               
-                
+                partitionArray(ref beg, ref end, ref pivotLoc);
+                quickSort(beg, pivotLoc - 1);
+                quickSort(pivotLoc + 1, end);
             }
-            
         }
 
         private void partitionArray(ref int beg,ref int end,ref int pivotLoc)
@@ -75,18 +75,6 @@ namespace Sorting_Algorithms
                     pivotLoc = left;   
                 }
             }
-        }
-
-        public void printArray()
-        {
-            Console.WriteLine("bubbleSort array:\n");
-
-            for (int i = array.Length - arraySize; i < array.Length; i++)
-            {
-                Console.WriteLine(array[i] + "\t");
-            }
-
-            
         }
     }
 }
