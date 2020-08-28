@@ -1,20 +1,17 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Sorting_Algorithms
 {
-    class InsertionSort
+    class InsertionSort:Sorting
     {
-        private int[] array;
-        private int arraySize;
-
-        public InsertionSort(int arraySize, int[] array)
+        public InsertionSort(int arraySize, int[] array):base()
         {
             this.array = array;
             this.arraySize = arraySize;
         }
 
-        public void changeArray()
+        public override void changeArray()
         {
             int temp;
 
@@ -30,18 +27,7 @@ namespace Sorting_Algorithms
                     }
                 }
             }
-
             printArray();
-        }
-
-        public void printArray()
-        {
-            Console.WriteLine("Insetrioned array:\n");
-
-            for(int i = array.Length-arraySize; i < array.Length; i++)
-            {
-                Console.WriteLine(array[i]+"\t");
-            }
         }
     }
 }
